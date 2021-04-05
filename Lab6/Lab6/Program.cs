@@ -6,10 +6,12 @@ namespace LAB_06
     {
         static void Main()
         {
-            Enigma enigma = new Enigma();
-            string encoded = enigma.Crypt("PRIMAKOV", 2, 0, 0);
-            Console.WriteLine(encoded);
-            Console.WriteLine(enigma.Crypt(encoded, 2, 0, 0));
+            var enigma = new Enigma();
+            var encoded = enigma.Crypt("DANIL EVGENIVICH SELITSKY", 3, 1, 3);
+            var decoded = enigma.Crypt(encoded, 3, 1, 3);
+            
+            Console.WriteLine($"Encoded:{encoded}\n" +
+                              $"Decoded:{decoded}");
         }
     }
 }
