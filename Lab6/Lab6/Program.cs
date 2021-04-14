@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace LAB_06
 {
@@ -7,11 +8,22 @@ namespace LAB_06
         static void Main()
         {
             var enigma = new Enigma();
-            var encoded = enigma.Crypt("DANIL EVGENIVICH SELITSKY", 3, 1, 3);
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append('A');
+            while (stringBuilder.Length < 1000000)
+            {
+                stringBuilder.Append(stringBuilder.ToString());
+            }
+
+
+            var encoded = enigma.Crypt(stringBuilder.ToString(), 3, 1, 3);
+
             var decoded = enigma.Crypt(encoded, 3, 1, 3);
-            
-            Console.WriteLine($"Encoded:{encoded}\n" +
-                              $"Decoded:{decoded}");
+
+            //Console.WriteLine($"Encoded:{encoded}\n" +
+            //                  $"Is a? {encoded.Contains('A')}" +
+            //                  $"Decoded:{decoded}");
+            Console.WriteLine($"Is a? {encoded.Contains('A')}");
         }
     }
 }

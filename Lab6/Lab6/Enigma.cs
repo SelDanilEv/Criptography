@@ -32,11 +32,11 @@ namespace LAB_06
                     }
                 }
 
-                Console.Write(ch);
+                //Console.Write(ch);
 
                 if (ch == ' ')
                 {
-                    Console.Write("(space like X)");
+                    //Console.Write("(space like X)");
                     symbol = rotorR[_alphabet.IndexOf('X')];
                 }
                 else
@@ -56,7 +56,7 @@ namespace LAB_06
                 LogToConsole(symbol);
                 symbol = _alphabet[rotorR.IndexOf(symbol)];
                 LogToConsole(symbol);
-                Console.WriteLine();
+                //Console.WriteLine();
                 result.Append(symbol);
             }
 
@@ -65,7 +65,7 @@ namespace LAB_06
 
         public void LogToConsole(char symbol)
         {
-            Console.Write(" => " + symbol);
+            //Console.Write(" ==> " + symbol);
         }
     }
 }
