@@ -9,15 +9,26 @@ namespace LAB_07
         static void Main(string[] args)
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            
+
+            string text = "";
+
+            text = Console.ReadLine();
+
+            if (text.StartsWith(" ") || text.Length == 0)
+            {
+                text = "SELITSKY DANIL EVGENIVICH";
+            }
+
             var encode = new DESCryptoEncode();
             var decode = new DESCryptoDecode();
 
-            var crypted = encode.Encode("PRIMAKOV MAKSIM NIKOLAEVICH!!", "KEY12345");
-            var uncrypted = decode.Decode(crypted, "KEY12345");
+            Console.WriteLine($"Original text : {text}");
 
-            Console.WriteLine(crypted);
-            Console.WriteLine(uncrypted);
+            var crypted = encode.Encode(text, "SECRET");
+            Console.WriteLine($"After encoding : {crypted}");
+
+            var uncrypted = decode.Decode(crypted, "SECRET");
+            Console.WriteLine($"After decoding : {uncrypted}");
         }
     }
 }

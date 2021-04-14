@@ -10,7 +10,7 @@ namespace LAB_07
     {
         public String Decode(String data, String key, bool isParallel = false)
         {
-            return Encoding.GetEncoding(1251).GetString(Decode(Encoding.GetEncoding(1251).GetBytes(data), key, isParallel));
+            return Encoding.GetEncoding(1251).GetString(Decode(Encoding.GetEncoding(1251).GetBytes(data), key, isParallel)).Replace("#","");
         }
 
         public byte[] Decode(byte[] data, String key, bool isParallel = false)

@@ -10,6 +10,11 @@ namespace LAB_07
     {
         public String Encode(String data, String key, bool isParallel = false)
         {
+            while (data.Length % 8 != 0)
+            {
+                data += "#";
+            }
+
             return Encoding.GetEncoding(1251).GetString(Encode(Encoding.GetEncoding(1251).GetBytes(data), key, isParallel));
         }
 
