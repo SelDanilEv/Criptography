@@ -10,25 +10,32 @@ namespace LAB_07
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-            string text = "";
-
-            text = Console.ReadLine();
-
-            if (text.StartsWith(" ") || text.Length == 0)
-            {
-                text = "SELITSKY DANIL EVGENIVICH";
-            }
-
             var encode = new DESCryptoEncode();
             var decode = new DESCryptoDecode();
 
-            Console.WriteLine($"Original text : {text}");
+            string text = "";
+            var secret = "SECRET12";
 
-            var crypted = encode.Encode(text, "SECRET");
-            Console.WriteLine($"After encoding : {crypted}");
+            do
+            {
+                Console.WriteLine("\nPrint 'exit' to exit\nPrint another text to encrypt and decrypt\nPress 'ENTER' to use default text");
+                text = Console.ReadLine();
+                Console.Clear();
 
-            var uncrypted = decode.Decode(crypted, "SECRET");
-            Console.WriteLine($"After decoding : {uncrypted}");
+                if (text.StartsWith(" ") || text.Length == 0)
+                {
+                    text = "SELITSKY DANIL EVGENIVICH";
+                }
+
+                Console.WriteLine($"Original text : {text}");
+
+                var crypted = encode.Encode(text, secret);
+                Console.WriteLine($"After encoding : {crypted}");
+
+                var decoded = decode.Decode(crypted, secret);
+                Console.WriteLine($"After decoding : {decoded}");
+            }
+            while (text != "exit");
         }
     }
 }
